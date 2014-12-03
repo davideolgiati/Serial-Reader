@@ -4,7 +4,7 @@
 #include <fcntl.h>
 #include <stdbool.h>
 #include <unistd.h>
-#include "killerutils.h"
+#include "serial.h"
  
 int main(int argc, char* argv[])
 {
