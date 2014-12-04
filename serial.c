@@ -4,7 +4,7 @@
 #include fcntl.h
 #include stdbool.h
 #include unistd.h
-#include serial.h
+#include "serial.h"
  
 int main(int argc, char argv[])
 {
@@ -24,7 +24,7 @@ const char options = ho;
      return 0;
      break;
    case 'o'
-     printf(ntttt033[1;31mONE-SHOT MODE033[0mnn);
+     printf("\n\t\t\t\t\033[1;31mONE-SHOT MODE\033[0mnn");
      com=init(com);
      tattr=silent(tattr, com);
      sread(com, input, i);
@@ -36,11 +36,11 @@ const char options = ho;
   do
   {
    i=sread(com, input, i);
-   printf(Do you want to continue[YesNo]);
-   scanf(%c,&reply);
-   if (reply!=n && reply!=y && reply!=Y && reply!=s && reply!=S)
+   printf("Do you want to continue\t[Y]es\[N]o");
+   scanf("%c",&reply);
+   if (reply!="\n" && reply!="y" && reply!="Y" && reply!="s" && reply!="S")
    {
-    printf(nBey Beyn);
+    printf("\nBey Bey\n");
     question = 0;
    }
   }while(question)
