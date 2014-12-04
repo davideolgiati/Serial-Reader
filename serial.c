@@ -36,7 +36,7 @@ const char options = ho;
   do
   {
    i=sread(com, input, i);
-   printf("Do you want to continue\t[Y]es\[N]o");
+   printf("Do you want to continue\t[Y]es or [N]o");
    scanf("%c",&reply);
    if (reply!="\n" && reply!="y" && reply!="Y" && reply!="s" && reply!="S")
    {
