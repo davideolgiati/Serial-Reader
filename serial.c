@@ -1,9 +1,9 @@
-#include stdio.h
-#include stdlib.h
-#include termios.h
-#include fcntl.h
-#include stdbool.h
-#include unistd.h
+#include <stdio.h>
+#include <stdlib.h>
+#include <termios.h>
+#include <fcntl.h>
+#include <stdbool.h>
+#include <unistd.h>
 #include "serial.h"
  
 int main(int argc, char argv[])
@@ -15,7 +15,7 @@ struct termios tattr;
 const char options = ho;
  
  
-  system(clear);
+  system("clear");
   ch = (getopt(argc, argv, options));
   switch (ch)
   {
