@@ -1,33 +1,33 @@
 struct termios full (struct termios tattr ,int com)
 {
-  printf("\tAcquisisco informazioni sulla Seriale ....");
+  printf("\t Acquisisco informazioni sulla Seriale ....");
   tcgetattr (com, &tattr);
   tattr.c_cflag &= ~CSIZE;
-  printf("\t\033[1;32mAcquisite!\033[0m\n");
-  printf("\tDisabilito i Flag di Lettura non necessari ....");
+  printf("\t\033[1;32m Acquisite! \033[0m\n");
+  printf("\t Disabilito i Flag di Lettura non necessari ....");
   tattr.c_iflag &= ~(INLCR|IGNCR|ICRNL|IXON);
   tattr.c_oflag &= ~OPOST;
-  printf("\t\033[1;32mDisabilitati!\033[0m\n");
-  printf("\tAbilito la lettura a 7bit ....");
+  printf("\t\033[1;32m Disabilitati! \033[0m\n");
+  printf("\t Abilito la lettura a 7bit ....");
   tattr.c_cflag = CS7 | CREAD | CLOCAL; 
-  printf("\t\t\t\033[1;32mAbilitata!\033[0m\n");
-  printf("\tPrevengo output errati ....");
+  printf("\t\t\t\033[1;32m Abilitata! \033[0m\n");
+  printf("\t Prevengo output errati ....");
   tattr.c_lflag &= ~(ICANON|ECHO);
-  printf("\t\t\t\033[1;32mPrevenuti!\033[0m\n");
-  printf("\tImposto un solo stop bit ....");
+  printf("\t\t\t\033[1;32m Prevenuti! \033[0m\n");
+  printf("\t Imposto un solo stop bit ....");
   tattr.c_cflag &= ~CSTOPB;
-  printf("\t\t\t\033[1;32mImpostato!\033[0m\n");
-  printf("\tSetup timeout seriale e caratteri ....");	
+  printf("\t\t\t\033[1;32m Impostato! \033[0m\n");
+  printf("\t Setup timeout seriale e caratteri ....");	
   tattr.c_cc[VMIN] = 1;			
   tattr.c_cc[VTIME] = 0;
-  printf("\t\t\033[1;32mSetup avvenuto!\033[0m\n");
-  printf("\tSetto la velocità di lettura! ....");		
+  printf("\t\t\033[1;32m Setup avvenuto! \033[0m\n");
+  printf("\t Setto la velocità di lettura! ....");		
   cfsetispeed (&tattr, B9600);		
-  printf("\t\t\033[1;32mSetup avvenuto!\033[0m\n");
+  printf("\t\t\033[1;32m Setup avvenuto! \033[0m\n");
  
-  printf("\n\tApplico i Cambiamenti ....");
+  printf("\n\t Applico i Cambiamenti ....");
   tcsetattr (com, TCSANOW, &tattr);	
-  printf("\t\t\t\033[1;32mApplicati!\033[0m\n\n\n");
+  printf("\t\t\t\033[1;32m Applicati! \033[0m\n\n\n");
   return tattr;
 }
  
@@ -52,7 +52,7 @@ int init (int com)
 {
     if ((com = open ("/dev/ttyS0",O_RDWR | O_SYNC))==-1)			
      {
-       perror ("\t\t\033[1;31mNon posso aprire la seriale\033[0m"); 
+       perror ("\t\t\033[1;31m Non posso aprire la seriale \033[0m"); 
        exit(1);				
      }
     return com;
@@ -72,7 +72,7 @@ int sread (int com, char input, int i)
  
 void help ()
 {
-     printf("\n\t\t\t\t      \033[1;36mHELP\033[0m\n\n");
+     printf("\n\t\t\t\t      \033[1;36m HELP \033[0m\n\n");
      printf("\n     Programm Developed by Davide Olgiati.\n");
      printf("     Serial Killer is an open sources programm using the termios.h library.\n");
 }
