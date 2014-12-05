@@ -10,7 +10,7 @@ int main(int argc, char argv[])
 {
 char input, reply;
 bool question = 1;
-int com,i=0,ch;			
+int com,rtn=0,ch;			
 struct termios tattr;		
 const char options = ho;
  
@@ -27,7 +27,7 @@ const char options = ho;
      printf("\n\t\t\t\t\033[1;31mONE-SHOT MODE\033[0mnn");
      com=init(com);
      tattr=silent(tattr, com);
-     sread(com, input, i);
+     rtn=sread(com, input, rtn);
      return 0;
      break;
   }
@@ -35,7 +35,7 @@ const char options = ho;
   tattr=full(tattr, com);
   do
   {
-   i=sread(com, input, i);
+   rtn=sread(com, input, rtn);
    printf("Do you want to continue\t[Y]es or [N]o");
    scanf("%c",&reply);
    if (reply!="\n" && reply!="y" && reply!="Y" && reply!="s" && reply!="S")
