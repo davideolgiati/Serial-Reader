@@ -43,6 +43,6 @@ const char options = ho;
     printf("\nBey Bey\n");
     question = 0;
    }
-  }while(question)
+  }while(question);
   return 0;				
 }
